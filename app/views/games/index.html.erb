@@ -1,0 +1,8 @@
+<section>
+  <h2>Today's Games</h2>
+  <ul>
+    <% @games.each do |game| %>
+      <li><%= game.away_opponent.name %> at <%= game.home_opponent.name %></li>
+    <% end %>
+  </ul>
+</section>

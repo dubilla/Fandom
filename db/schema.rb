@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170716003725) do
+ActiveRecord::Schema.define(version: 20170716224253) do
+
+  create_table "games", force: :cascade do |t|
+    t.datetime "starts_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "opponents", force: :cascade do |t|
+    t.integer  "team_id",                    null: false
+    t.integer  "game_id",                    null: false
+    t.boolean  "home",       default: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "opponents", ["home"], name: "index_opponents_on_home"
+
+  create_table "teams", force: :cascade do |t|
+    t.string   "location"
+    t.string   "nickname"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

@@ -4,8 +4,10 @@ require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
-eequire 'rspec/rails'
+require 'rspec/rails'
 require 'capybara/poltergeist'
+require 'support/factory_girl'
+
 Capybara.javascript_driver = :poltergeist
 # Add additional requires below this line. Rails is not loaded until this point!
 
